@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>株式会社CTI 社員研修旅行 2026｜箱根・湘南・横浜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea:#2c5f8a; --sea-dark:#1b3d5c; --sea-light:#6a9cc4;
+    --sand:#f6efe2; --coral:#f2755f; --green:#06C755;
+    --ink:#1c2b33; --muted:#5d7480; --line:#dfe8ec; --bg:#f2f7f9;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:0 18px;}
+
+  /* ===== 認証 ===== */
+  #gate{
+    position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,#142c44 0%,#2c5f8a 50%,#4f8a74 100%);padding:20px;
+  }
+  #gate .card{
+    background:#fff;border-radius:20px;padding:38px 30px;max-width:400px;width:100%;
+    box-shadow:0 24px 60px rgba(0,0,0,.28);text-align:center;
+  }
+  #gate h1{font-family:"Shippori Mincho",serif;font-size:20px;margin:0 0 6px;color:var(--sea-dark);}
+  #gate p{font-size:13px;color:var(--muted);margin:0 0 20px;}
+  #gate input{
+    width:100%;padding:13px 14px;font-size:16px;border:2px solid var(--line);
+    border-radius:11px;text-align:center;letter-spacing:.12em;font-family:inherit;
+  }
+  #gate input:focus{outline:none;border-color:var(--sea-light);}
+  #gate button{
+    width:100%;margin-top:12px;padding:13px;font-size:15px;font-weight:700;color:#fff;
+    background:var(--sea);border:0;border-radius:11px;cursor:pointer;font-family:inherit;
+  }
+  #gate button:hover{background:var(--sea-dark);}
+  #err{color:var(--coral);font-size:13px;margin-top:10px;min-height:1.2em;font-weight:500;}
+  #main{display:none;}
+
+  /* ===== ヒーロー ===== */
+  .hero{
+    background:linear-gradient(160deg,#142c44 0%,#2c5f8a 45%,#3f7f6c 80%,#6fae8f 100%);
+    color:#fff;padding:52px 0 46px;text-align:center;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:52px;
+    background:radial-gradient(ellipse at 50% 100%,var(--bg) 68%,transparent 69%);
+  }
+  .hero .eyebrow{font-size:13px;letter-spacing:.22em;opacity:.9;margin:0 0 10px;}
+  .hero h1{
+    font-family:"Shippori Mincho",serif;font-size:clamp(25px,5.4vw,40px);
+    margin:0 0 12px;line-height:1.35;text-shadow:0 2px 14px rgba(0,0,0,.18);
+  }
+  .hero .dates{font-size:clamp(14px,2.6vw,17px);font-weight:500;}
+  .hero .badge{
+    display:inline-block;margin-top:16px;padding:7px 20px;border-radius:999px;
+    background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.42);
+    font-size:13px;backdrop-filter:blur(4px);
+  }
+
+  /* ===== LINE ===== */
+  .line-box{
+    margin:-18px auto 34px;position:relative;z-index:2;background:#fff;border-radius:18px;
+    padding:24px;box-shadow:0 8px 26px rgba(44,95,138,.14);border:2px solid var(--green);
+    display:flex;gap:22px;align-items:center;
+  }
+  .line-box .qr{
+    width:132px;height:132px;flex:none;padding:9px;background:#fff;
+    border:1px solid var(--line);border-radius:12px;
+  }
+  .line-box .qr img{width:100%;height:100%;display:block;}
+  .line-box h2{margin:0 0 6px;font-size:17px;color:var(--green);display:flex;align-items:center;gap:8px;}
+  .line-box p{margin:0 0 13px;font-size:13.5px;color:var(--muted);}
+  .line-btn{
+    display:inline-block;background:var(--green);color:#fff;text-decoration:none;
+    padding:12px 26px;border-radius:999px;font-weight:700;font-size:15px;
+    box-shadow:0 4px 12px rgba(6,199,85,.32);
+  }
+  .line-btn:hover{background:#05a847;}
+
+  /* ===== セクション ===== */
+  section{margin-bottom:34px;}
+  h2.sec{
+    font-family:"Shippori Mincho",serif;font-size:21px;color:var(--sea-dark);
+    margin:0 0 16px;padding-left:13px;border-left:5px solid var(--sea);line-height:1.4;
+  }
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px;}
+  .info{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 16px;}
+  .info .k{font-size:11.5px;color:var(--muted);letter-spacing:.06em;margin-bottom:3px;}
+  .info .v{font-size:15px;font-weight:700;}
+
+  /* ===== DAY ===== */
+  .day{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 3px 14px rgba(28,43,51,.07);margin-bottom:22px;}
+  .day-head{padding:20px 24px;color:#fff;display:flex;align-items:center;gap:16px;}
+  .d1{background:linear-gradient(120deg,#2b6e8f,#3f95a8 55%,#5f9f78);}
+  .d2{background:linear-gradient(120deg,#1b3d5c,#2c5f8a 60%,#b0463c);}
+  .day-num{
+    width:56px;height:56px;flex:none;border-radius:50%;background:rgba(255,255,255,.24);
+    border:2px solid rgba(255,255,255,.55);display:flex;flex-direction:column;
+    align-items:center;justify-content:center;line-height:1;
+  }
+  .day-num small{font-size:9.5px;letter-spacing:.1em;opacity:.92;}
+  .day-num b{font-size:21px;}
+  .day-head .t{font-family:"Shippori Mincho",serif;font-size:19px;margin:0;}
+  .day-head .s{font-size:13px;opacity:.93;margin-top:2px;}
+  .day-body{padding:22px 24px;}
+
+  .tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px dotted var(--sea-light);}
+  .tl li{position:relative;padding:0 0 20px 18px;}
+  .tl li:last-child{padding-bottom:0;}
+  .tl li::before{
+    content:"";position:absolute;left:-30px;top:6px;width:14px;height:14px;border-radius:50%;
+    background:#fff;border:3px solid var(--sea);
+  }
+  .tl .time{font-weight:700;color:var(--sea-dark);font-size:14.5px;letter-spacing:.02em;}
+  .tl .ttl{font-weight:700;font-size:15.5px;margin:1px 0 2px;}
+  .tl .dsc{font-size:13.5px;color:var(--muted);}
+
+  .spots{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px;margin-top:18px;}
+  .spot{background:var(--sand);border-radius:13px;padding:15px;}
+  .spot .ic{font-size:26px;line-height:1;}
+  .spot .nm{font-weight:700;margin:6px 0 3px;font-size:14.5px;}
+  .spot .ds{font-size:12.5px;color:var(--muted);}
+
+  .stay{
+    margin-top:18px;border-radius:13px;padding:16px 18px;
+    background:linear-gradient(110deg,#fff3e0,#ffe6c9);border-left:5px solid #e79a3c;
+  }
+  .meal{
+    margin-top:12px;border-radius:13px;padding:16px 18px;
+    background:linear-gradient(110deg,#ffeef0,#ffe0e5);border-left:5px solid var(--coral);
+  }
+  .stay b,.meal b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .stay span,.meal span{font-size:13.5px;color:var(--muted);}
+
+  .note{background:#fffbe6;border-left:5px solid #e9c320;border-radius:13px;padding:18px 20px;}
+  .note ul{margin:0;padding-left:19px;font-size:14px;}
+  .note li{margin-bottom:7px;}
+  .note li:last-child{margin-bottom:0;}
+
+  .items{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:10px;}
+  .item{background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px 8px;text-align:center;font-size:13px;}
+  .item .ic{display:block;font-size:23px;margin-bottom:5px;}
+
+  footer{background:var(--sea-dark);color:#fff;padding:30px 0;text-align:center;font-size:13px;margin-top:44px;}
+  footer .nm{font-weight:700;font-size:15px;margin-bottom:7px;}
+  footer a{color:#b9d4ea;}
+
+  @media(max-width:720px){
+    .line-box{flex-direction:column;text-align:center;gap:16px;}
+    .day-head{padding:16px;gap:12px;}
+    .day-body{padding:18px 15px;}
+    .day-head .t{font-size:17px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="card">
+    <h1>株式会社CTI<br />社員研修旅行 2026</h1>
+    <p>合言葉を入力してください</p>
+    <input type="password" id="pw" placeholder="合言葉" autocomplete="off" />
+    <button onclick="checkPwd()">ひらく</button>
+    <div id="err"></div>
+  </div>
+</div>
+
+<div id="main">
+
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">CTI HAKONE / SHONAN / YOKOHAMA 2026</p>
+      <h1>箱根・湘南・横浜 社員研修旅行</h1>
+      <p class="dates">2026年10月22日（木）〜 10月23日（金）　1泊2日</p>
+      <span class="badge">株式会社CTI 御一行様</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="line-box">
+      <div class="qr"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MyIgaGVpZ2h0PSI1MyIgY2xhc3M9InNlZ25vIj48cGF0aCBjbGFzcz0icXJsaW5lIiBzdHJva2U9IiMwNmM3NTUiIGQ9Ik0yIDIuNWg3bTIgMGg0bTEgMGgybTEgMGgxbTEgMGgxbTUgMGg1bTIgMGgxbTEgMGgxbTUgMGgxbTEgMGg3bS00OSAxaDFtNSAwaDFtMiAwaDJtMSAwaDFtMiAwaDJtMiAwaDFtMSAwaDFtMiAwaDFtMyAwaDFtMSAwaDRtMSAwaDFtMSAwaDRtMSAwaDFtNSAwaDFtLTQ5IDFoMW0xIDBoM20xIDBoMW0xIDBoMm0xIDBoMm0xIDBoMm0yIDBoMW0yIDBoMW0yIDBoMW0xIDBoNG0yIDBoMW0xIDBoMm0zIDBoMm0xIDBoMW0xIDBoM20xIDBoMW0tNDkgMWgxbTEgMGgzbTEgMGgxbTEgMGgybTEgMGgxbTQgMGgxbTUgMGgybTIgMGgybTEgMGgxbTEgMGgxbTIgMGg0bTEgMGgxbTIgMGgxbTEgMGgzbTEgMGgxbS00OSAxaDFtMSAwaDNtMSAwaDFtMSAwaDNtNCAwaDJtMSAwaDltMiAwaDJtMSAwaDFtMiAwaDNtNCAwaDFtMSAwaDNtMSAwaDFtLTQ5IDFoMW01IDBoMW0xIDBoMW0xIDBoMW0xIDBoMW0xIDBoMm0xIDBoMm0xIDBoMW0xIDBoMW0zIDBoNG0xIDBoMm0xIDBoMW0zIDBoMW0zIDBoMW01IDBoMW0tNDkgMWg3bTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGg3bS00MSAxaDFtMiAwaDFtMyAwaDJtMiAwaDJtMSAwaDFtMyAwaDFtMSAwaDNtMSAwaDFtMSAwaDFtMSAwaDJtMSAwaDJtLTQxIDFoMW0xIDBoNW0yIDBoNW0xIDBoMW0yIDBoMW0xIDBoN20yIDBoMW0xIDBoMW0zIDBoM20xIDBoMW0yIDBoNW0tNDQgMWgzbTIgMGgxbTIgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTIgMGgxbTIgMGgxbTIgMGgxbTEgMGgxbTEgMGgxbTMgMGgybTEgMGgxbTEgMGgybTEgMGgxbTIgMGgybS00NyAxaDVtMSAwaDRtMiAwaDFtMSAwaDFtMiAwaDFtMiAwaDJtMSAwaDJtMSAwaDJtMSAwaDFtMiAwaDFtMiAwaDFtMSAwaDFtMyAwaDFtMSAwaDFtMSAwaDJtLTQ3IDFoMm00IDBoNW0xIDBoNG01IDBoMm0yIDBoMm0zIDBoMW00IDBoMm01IDBoMW0tNDMgMWgybTIgMGgxbTQgMGgxbTEgMGgxbTEgMGg1bTEgMGg2bTIgMGgxbTYgMGgybTEgMGgybTIgMGgxbTEgMGgybS00NyAxaDFtMSAwaDFtMSAwaDJtMyAwaDJtMiAwaDFtMSAwaDJtMSAwaDFtMiAwaDFtMSAwaDNtMyAwaDJtMSAwaDFtMiAwaDNtNCAwaDNtMSAwaDJtLTQ1IDFoMm0xIDBoMW0xIDBoMW0zIDBoMW00IDBoMW0xIDBoMW0zIDBoMW0yIDBoMW0yIDBoMm0yIDBoNW0xIDBoMW0zIDBoNm0tNDkgMWgybTMgMGgxbTMgMGg0bTEgMGgxbTIgMGgybTIgMGgxbTMgMGgxbTQgMGgybTEgMGgxbTEgMGgybTQgMGgybTIgMGgxbTIgMGgxbS00OSAxaDFtMiAwaDJtMSAwaDJtMSAwaDFtMSAwaDFtMSAwaDJtMiAwaDJtMSAwaDFtMiAwaDJtMSAwaDJtMSAwaDJtNSAwaDFtMiAwaDJtMSAwaDJtMiAwaDFtLTQ2IDFoMm0yIDBoMW01IDBoMW0xIDBoMm00IDBoMW0yIDBoMW0yIDBoMW00IDBoMm0xIDBoMW0xIDBoMm00IDBoMm0xIDBoMW0tNDUgMWgxbTUgMGgxbTEgMGgxbTIgMGgybTQgMGgxbTYgMGg0bTEgMGgybTUgMGgxbTIgMGgxbTIgMGgxbTEgMGgybTEgMGgybS00OSAxaDFtMSAwaDFtNiAwaDNtMSAwaDNtMSAwaDJtNSAwaDFtMyAwaDFtMyAwaDFtNCAwaDJtMiAwaDFtMSAwaDJtMiAwaDFtLTQ2IDFoM20xIDBoMm0zIDBoMW0yIDBoM20xIDBoM20xIDBoNG0zIDBoM20xIDBoMW0xIDBoMm0xIDBoM201IDBoM20tNDkgMWgzbTQgMGgxbTEgMGgybTEgMGgxbTIgMGgybTEgMGgybTcgMGgxbTEgMGgzbTQgMGgybTQgMGgzbTIgMGgxbS00OCAxaDFtMSAwaDdtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMyAwaDhtMiAwaDFtMSAwaDVtMSAwaDExbS00OSAxaDFtMSAwaDNtMyAwaDRtNSAwaDFtMSAwaDJtMSAwaDFtMyAwaDFtMiAwaDFtMSAwaDNtMyAwaDFtMSAwaDJtMyAwaDFtMiAwaDJtLTQ5IDFoMm0xIDBoMm0xIDBoMW0xIDBoMW0zIDBoMW0yIDBoOG0xIDBoMW0xIDBoMW0yIDBoMW0xIDBoMW0zIDBoMm0zIDBoMW0xIDBoMW0xIDBoMm0tNDQgMWgzbTMgMGgxbTIgMGg1bTEgMGgzbTEgMGgybTMgMGgxbTIgMGgzbTEgMGgxbTEgMGgybTMgMGgxbTMgMGgybS00NiAxaDFtMiAwaDhtMiAwaDJtMiAwaDRtMSAwaDVtMSAwaDJtNCAwaDFtMSAwaDNtMSAwaDVtMiAwaDJtLTQ4IDFoMW0xIDBoM200IDBoNW0xIDBoMm0xIDBoN20xIDBoMW0xIDBoMW0xIDBoMm0xIDBoMW0yIDBoMm0xIDBoMW02IDBoMm0tNDkgMWgxbTMgMGgxMm03IDBoMm0xIDBoMW0yIDBoMW01IDBoNW0yIDBoMW0xIDBoMW0xIDBoM20tNDkgMWgxbTQgMGgxbTEgMGgybTEgMGgzbTEgMGgxbTIgMGgxbTEgMGg0bTEgMGgxbTIgMGg3bTEgMGgzbTEgMGg1bTIgMGgxbS00NSAxaDFtMSAwaDhtMSAwaDJtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDRtMSAwaDFtMyAwaDFtMiAwaDJtMiAwaDFtMSAwaDRtMyAwaDJtLTQ4IDFoMW0xIDBoMm0zIDBoNG0zIDBoM20xIDBoMm0zIDBoNG0xIDBoMW00IDBoMW0xIDBoM20xIDBoMm0xIDBoMW00IDBoMW0tNDcgMWgxbTMgMGg0bTUgMGg2bTEgMGgxbTIgMGgybTEgMGgxbTIgMGg1bTIgMGg0bTIgMGg0bS00OCAxaDJtNSAwaDFtMyAwaDNtMiAwaDFtMSAwaDJtMyAwaDdtMiAwaDFtMSAwaDFtMiAwaDVtMSAwaDFtLTQ0IDFoMm00IDBoMW03IDBoMW0yIDBoM20xIDBoMm0xIDBoMm0yIDBoMW0xIDBoNG0xIDBoMW0zIDBoMW0yIDBoMm0xIDBoMW0xIDBoMm0tNDkgMWgxbTMgMGgybTEgMGgxbTEgMGgxbTIgMGgybTEgMGgxbTMgMGgzbTEgMGg0bTEgMGgzbTEgMGgzbTIgMGgxbTIgMGgxbTMgMGgxbTIgMGgybS00OSAxaDJtMSAwaDFtMiAwaDJtMiAwaDNtMyAwaDFtMyAwaDFtMiAwaDFtMSAwaDFtMyAwaDFtMSAwaDFtMyAwaDNtMSAwaDNtMSAwaDFtMiAwaDFtLTQ3IDFoMm0xIDBoMm00IDBoMW0yIDBoMm0yIDBoMW0yIDBoMW0xIDBoMW0xIDBoM20yIDBoM20yIDBoMW0xIDBoMm0zIDBoNG0xIDBoMW0tNDUgMWgxbTMgMGgybTMgMGgybTEgMGgybTMgMGgybTEgMGg1bTIgMGgxbTIgMGg2bTEgMGgxbTIgMGgybTQgMGgybS00OCAxaDNtMyAwaDFtMSAwaDFtMSAwaDJtMSAwaDJtMSAwaDJtMSAwaDFtMiAwaDEwbTMgMGgybTIgMGgxbTIgMGgybS00NSAxaDNtMyAwaDFtMSAwaDFtMSAwaDJtMSAwaDJtMSAwaDJtMiAwaDFtMSAwaDVtMiAwaDJtNCAwaDJtMiAwaDdtMSAwaDJtLTQxIDFoMW0yIDBoMW0xIDBoMW0xIDBoMW0xIDBoMW0xIDBoMW0xIDBoMm0zIDBoMm0xIDBoMm0xIDBoMW00IDBoMW0yIDBoMW0zIDBoMW0yIDBoMm0tNDkgMWg3bTIgMGgxbTIgMGgybTEgMGgxbTEgMGgxbTEgMGgybTEgMGgxbTEgMGgxbTEgMGgxbTIgMGgxbTIgMGgxbTEgMGgxbTMgMGgxbTEgMGgxbTEgMGgxbTEgMGgybTEgMGgybS00OSAxaDFtNSAwaDFtMSAwaDJtMSAwaDFtMiAwaDFtMSAwaDFtMSAwaDJtMSAwaDJtMyAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMiAwaDJtMSAwaDFtMyAwaDFtMiAwaDJtLTQ5IDFoMW0xIDBoM20xIDBoMW0xIDBoMm0yIDBoMW0xIDBoMm0xIDBoM20yIDBoNm0xIDBoMW0xIDBoMW0zIDBoM20yIDBoN20xIDBoMW0tNDkgMWgxbTEgMGgzbTEgMGgxbTEgMGgybTEgMGgxbTQgMGgxbTEgMGgxbTIgMGgybTIgMGgybTEgMGg1bTQgMGgxbTEgMGg2bTIgMGgxbS00OCAxaDFtMSAwaDNtMSAwaDFtMSAwaDNtMyAwaDNtMiAwaDFtMSAwaDFtMSAwaDJtMSAwaDFtMSAwaDFtMiAwaDVtMiAwaDFtNCAwaDFtMSAwaDFtMSAwaDJtLTQ5IDFoMW01IDBoMW00IDBoMm01IDBoMW01IDBoM20zIDBoMm0xIDBoMW0xIDBoMm00IDBoMm01IDBoMW0tNDkgMWg3bTEgMGg1bTIgMGg0bTEgMGgxbTYgMGgxbTEgMGgybTUgMGgybTMgMGgxbTMgMGg0Ii8+PC9zdmc+Cg==" alt="LINEオープンチャットのQRコード" /></div>
+      <div>
+        <h2>💬 LINEオープンチャット</h2>
+        <p>今回の旅行の連絡はすべてこちらで行います。<br />
+        出発前に必ずご参加ください。当日の集合・変更のご連絡もここに流します。</p>
+        <a class="line-btn" href="https://line.me/ti/g2/yGo2EjxxfBMrGoqUjVALZDModeT4jAhMq5z1vg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener">オープンチャットに参加する</a>
+      </div>
+    </div>
+
+    <section>
+      <h2 class="sec">旅行概要</h2>
+      <div class="grid">
+        <div class="info"><div class="k">行先</div><div class="v">神奈川県 鎌倉・江の島・箱根・横浜</div></div>
+        <div class="info"><div class="k">日程</div><div class="v">10/22（木）〜10/23（金）</div></div>
+        <div class="info"><div class="k">人数</div><div class="v">33名</div></div>
+        <div class="info"><div class="k">宿泊</div><div class="v">箱根湯本温泉 吉池旅館</div></div>
+        <div class="info"><div class="k">出発空港</div><div class="v">大阪伊丹空港</div></div>
+        <div class="info"><div class="k">航空会社</div><div class="v">ANA（羽田往復）</div></div>
+        <div class="info"><div class="k">添乗員</div><div class="v">同行あり</div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec">行程</h2>
+
+      <div class="day">
+        <div class="day-head d1">
+          <div class="day-num"><small>DAY</small><b>1</b></div>
+          <div>
+            <p class="t">10月22日（木）</p>
+            <p class="s">🗿 鎌倉大仏・江の島から箱根の温泉へ</p>
+          </div>
+        </div>
+        <div class="day-body">
+          <ul class="tl">
+            <li><div class="time">06:50</div><div class="ttl">CTI第一工場A棟 バス到着</div><div class="dsc">集合時刻はLINEでご案内します</div></li>
+            <li><div class="time">07:00</div><div class="ttl">亀岡 出発</div><div class="dsc">貸切バスにて大阪伊丹空港へ</div></li>
+            <li><div class="time">07:45</div><div class="ttl">大阪伊丹空港 到着</div><div class="dsc">団体チェックイン・手荷物お預け</div></li>
+            <li><div class="time">09:00</div><div class="ttl">伊丹空港 出発</div><div class="dsc">ANA018便</div></li>
+            <li><div class="time">10:15</div><div class="ttl">羽田空港 到着</div><div class="dsc">手荷物受取・トイレ休憩（軽食を買うならここで）</div></li>
+            <li><div class="time">10:45</div><div class="ttl">羽田空港 出発</div><div class="dsc">貸切バスにて鎌倉へ</div></li>
+            <li><div class="time">11:50</div><div class="ttl">鎌倉大仏（高徳院）</div><div class="dsc">拝観・胎内めぐり・全体集合写真</div></li>
+            <li><div class="time">12:50</div><div class="ttl">鎌倉 御代川 到着</div><div class="dsc">由比ガ浜</div></li>
+            <li><div class="time">13:00〜14:00</div><div class="ttl">昼食</div><div class="dsc">鎌倉 御代川</div></li>
+            <li><div class="time">14:10</div><div class="ttl">御代川 出発</div><div class="dsc">海岸線（国道134号）を江の島へ</div></li>
+            <li><div class="time">14:40〜15:50</div><div class="ttl">江の島</div><div class="dsc">エスカー・サムエル・コッキング苑・シーキャンドル展望灯台</div></li>
+            <li><div class="time">15:55</div><div class="ttl">江の島 出発</div><div class="dsc">箱根へ</div></li>
+            <li><div class="time">17:00</div><div class="ttl">箱根湯本 観光駐車場 到着</div><div class="dsc">ここでバスを降り、旅館まで徒歩約10分</div></li>
+            <li><div class="time">17:15</div><div class="ttl">吉池旅館 到着</div><div class="dsc">チェックイン・温泉</div></li>
+            <li><div class="time">19:00〜21:00</div><div class="ttl">ご宴会</div><div class="dsc">和宴会場にて会席料理・飲み放題</div></li>
+            <li><div class="time">21:15〜22:45</div><div class="ttl">二次会</div><div class="dsc">館内「クラブ大池」（貸切・飲み放題・カラオケ）</div></li>
+          </ul>
+
+          <div class="spots">
+            <div class="spot"><div class="ic">🗿</div><div class="nm">鎌倉大仏（高徳院）</div><div class="ds">13世紀に造られた高さ約11mの露坐の大仏。大仏の胎内にも入れます。</div></div>
+            <div class="spot"><div class="ic">🍱</div><div class="nm">鎌倉 御代川</div><div class="ds">由比ガ浜で昼食をいただきます。</div></div>
+            <div class="spot"><div class="ic">🗼</div><div class="nm">江の島シーキャンドル</div><div class="ds">海抜約120mの展望灯台。晴れれば富士山と湘南の海を一望。</div></div>
+            <div class="spot"><div class="ic">♨️</div><div class="nm">吉池旅館</div><div class="ds">箱根湯本。旧岩崎家別邸の庭園を持つ老舗旅館。自家源泉の温泉。</div></div>
+          </div>
+
+          <div class="stay"><b>🏨 ご宿泊</b><span>箱根湯本温泉 吉池旅館（神奈川県足柄下郡箱根町湯本597／TEL 0460-85-5711）</span></div>
+          <div class="meal"><b>🍽 昼食 13:00〜</b><span>鎌倉 御代川（鎌倉市由比ガ浜2-22-5）</span></div>
+          <div class="meal"><b>🍶 ご宴会 19:00〜21:00／二次会 21:15〜22:45</b><span>吉池旅館 和宴会場にて会席料理・飲み放題。二次会は館内「クラブ大池」（カラオケ付き）</span></div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-head d2">
+          <div class="day-num"><small>DAY</small><b>2</b></div>
+          <div>
+            <p class="t">10月23日（金）</p>
+            <p class="s">🍜 朝の庭園・カップヌードルミュージアム・横浜中華街</p>
+          </div>
+        </div>
+        <div class="day-body">
+          <ul class="tl">
+            <li><div class="time">07:30</div><div class="ttl">朝食</div><div class="dsc">旅館にて（全員7:30から）</div></li>
+            <li><div class="time">08:10〜08:50</div><div class="ttl">庭園散策</div><div class="dsc">吉池旅館の庭園「山月園」を朝の光の中で</div></li>
+            <li><div class="time">08:50</div><div class="ttl">チェックアウト</div><div class="dsc">荷物を持って観光駐車場へ（徒歩約10分）</div></li>
+            <li><div class="time">09:15</div><div class="ttl">箱根湯本 出発</div><div class="dsc">貸切バスにて横浜へ</div></li>
+            <li><div class="time">11:00</div><div class="ttl">カップヌードルミュージアム 横浜 到着</div><div class="dsc">館内展示の見学</div></li>
+            <li><div class="time">11:30〜12:30</div><div class="ttl">マイカップヌードルづくり</div><div class="dsc">カップのデザインからスープ・具材選びまで、世界にひとつのカップヌードルを</div></li>
+            <li><div class="time">13:10</div><div class="ttl">カップヌードルミュージアム 出発</div><div class="dsc">集合は13:00（時間厳守）</div></li>
+            <li><div class="time">13:20</div><div class="ttl">横浜中華街 到着</div><div class="dsc"></div></li>
+            <li><div class="time">13:30〜15:00</div><div class="ttl">昼食</div><div class="dsc">華正樓 本店</div></li>
+            <li><div class="time">15:00〜16:20</div><div class="ttl">自由散策</div><div class="dsc">中華街・山下公園・赤レンガ倉庫・お土産。集合場所と時刻はLINEでご案内します</div></li>
+            <li><div class="time">16:30</div><div class="ttl">横浜 出発</div><div class="dsc">貸切バスにて羽田空港へ</div></li>
+            <li><div class="time">17:15〜17:45</div><div class="ttl">羽田空港 到着</div><div class="dsc">団体チェックイン・夕食（各自）</div></li>
+            <li><div class="time">19:00</div><div class="ttl">羽田空港 出発</div><div class="dsc">ANA039便</div></li>
+            <li><div class="time">20:15</div><div class="ttl">大阪伊丹空港 到着</div><div class="dsc">貸切バスにて亀岡へ</div></li>
+            <li><div class="time">21:30</div><div class="ttl">亀岡 CTI第一工場 到着・解散</div><div class="dsc">お疲れさまでした</div></li>
+          </ul>
+
+          <div class="spots">
+            <div class="spot"><div class="ic">🌳</div><div class="nm">山月園</div><div class="ds">一万坪の池泉回遊式庭園。朝の静かな時間に散策します。</div></div>
+            <div class="spot"><div class="ic">🍜</div><div class="nm">カップヌードルミュージアム 横浜</div><div class="ds">安藤百福の発明の歴史と、自分だけのカップヌードルづくり。</div></div>
+            <div class="spot"><div class="ic">🥟</div><div class="nm">華正樓 本店</div><div class="ds">横浜中華街で昼食をいただきます。</div></div>
+            <div class="spot"><div class="ic">⚓</div><div class="nm">山下公園・赤レンガ倉庫</div><div class="ds">横浜の港を感じられる散策スポット。</div></div>
+          </div>
+
+          <div class="meal"><b>🍽 昼食 13:30〜</b><span>華正樓 本店（横浜中華街）</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec">ご案内・注意事項</h2>
+      <div class="note">
+        <ul>
+          <li><b>LINEオープンチャットに必ずご参加ください。</b>当日の集合・変更のご連絡はすべてこちらで行います。</li>
+          <li>ご出発の<b>20分前まで</b>に保安検査場をご通過ください。</li>
+          <li>1日目は朝が早く、<b>昼食は13:00</b>です。機内食はありませんので、羽田空港で軽食をどうぞ。</li>
+          <li>箱根湯本では、大型バスが旅館まで入れません。<b>観光駐車場から旅館まで約10分歩きます。</b>お荷物は各自でお持ちいただくため、<b>持ち運びやすい大きさ</b>でお願いします。</li>
+          <li>2日目の朝食は<b>7:30に全員そろって</b>いただきます。二次会は22:45で終了します。</li>
+          <li>カップヌードルミュージアムの出発は13:10です。<b>13:00の集合時間は厳守</b>でお願いします。</li>
+          <li>2日間ともよく歩きますので、<b>歩きやすい靴</b>をおすすめします。</li>
+          <li>雨天の場合、2日目朝の庭園散策は中止し、温泉などでお過ごしいただきます。</li>
+          <li>食物アレルギーをお持ちの方は、事前に幹事までお申し出ください。</li>
+          <li>天候・交通状況により行程が変更となる場合があります。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec">持ち物</h2>
+      <div class="items">
+        <div class="item"><span class="ic">🪪</span>身分証明書</div>
+        <div class="item"><span class="ic">👕</span>着替え</div>
+        <div class="item"><span class="ic">🧥</span>羽織れる上着</div>
+        <div class="item"><span class="ic">👟</span>歩きやすい靴</div>
+        <div class="item"><span class="ic">🧳</span>持ち運びやすい鞄</div>
+        <div class="item"><span class="ic">☔</span>雨具</div>
+        <div class="item"><span class="ic">💊</span>常備薬・酔い止め</div>
+        <div class="item"><span class="ic">🔋</span>モバイルバッテリー</div>
+        <div class="item"><span class="ic">💴</span>お小遣い（お土産代）</div>
+        <div class="item"><span class="ic">📷</span>カメラ</div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <div class="nm">株式会社リトルコンシェル</div>
+      <div>京都市下京区堀川通綾小路下る綾堀川町296 四条堀川ビル5階</div>
+      <div>TEL 075-823-6098／担当：上津原</div>
+      <div style="margin-top:12px;opacity:.75;font-size:12px;">
+        株式会社CTI様 社員研修旅行 2026
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const H = "c5339fcf4dcfbb49d2609368f8a33150598d8c94f41c6f3046e3b43e7f0f2a6d";
+async function sha256(s){
+  const b = new TextEncoder().encode(s);
+  const h = await crypto.subtle.digest("SHA-256", b);
+  return Array.from(new Uint8Array(h)).map(x=>x.toString(16).padStart(2,"0")).join("");
+}
+async function checkPwd(){
+  const v = document.getElementById("pw").value.trim();
+  if(await sha256(v) === H){
+    sessionStorage.setItem("cti2026ok","1");
+    open_();
+  } else {
+    document.getElementById("err").textContent = "合言葉が違うようです";
+    document.getElementById("pw").value = "";
+  }
+}
+function open_(){
+  document.getElementById("gate").style.display = "none";
+  document.getElementById("main").style.display = "block";
+}
+document.getElementById("pw").addEventListener("keydown", e=>{ if(e.key==="Enter") checkPwd(); });
+if(sessionStorage.getItem("cti2026ok")==="1") open_();
+</script>
+
+</body>
+</html>
